@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人学习档案</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#64748b',
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .section-transition { transition: all 0.5s ease-in-out; }
+      .btn-hover { transition: transform 0.2s; }
+      .btn-hover:hover { transform: translateY(-2px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-md fixed w-full z-10">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <button id="prevBtn" class="bg-primary text-white px-4 py-2 rounded-lg flex items-center opacity-50 cursor-not-allowed" disabled>
+        <<i class="fa fa-arrow-left mr-2"></</i> 后退
+      </button>
+      <h1 class="text-xl font-bold text-primary">个人学习档案</h1>
+      <button id="nextBtn" class="bg-primary text-white px-4 py-2 rounded-lg flex items-center">
+        前进 <<i class="fa fa-arrow-right ml-2"></</i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 主内容区 -->
+  <main class="container mx-auto px-4 pt-24 pb-16 flex-grow">
+    <!-- 个人简介 -->
+    <section id="section1" class="section-transition bg-white rounded-xl shadow-lg p-6 mb-8">
+      <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+          <<i class="fa fa-user text-2xl text-primary"></</i>
+        </div>
+        <h2 class="text-2xl font-bold">个人简介</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <<i class="fa fa-id-card-o text-primary mt-1 mr-3"></</i>
+            <div>
+              <h3 class="font-semibold">基本信息</h3>
+              <p>姓名：刘希鸿</p >
+              <p>性别：男</p >
+            </div>
+          </div>
+          <div class="flex items-start">
+            <<i class="fa fa-phone text-primary mt-1 mr-3"></</i>
+            <div>
+              <h3 class="font-semibold">联系电话</h3>
+              <p>15820018302</p >
+            </div>
+          </div>
+          <div class="flex items-start">
+            <<i class="fa fa-envelope-o text-primary mt-1 mr-3"></</i>
+            <div>
+              <h3 class="font-semibold">电子邮箱</h3>
+              <p>3034390936@qq.com</p >
+            </div>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <<i class="fa fa-heart-o text-primary mt-1 mr-3"></</i>
+          <div>
+            <h3 class="font-semibold">兴趣爱好</h3>
+            <p>足球</p >
+            <div class="mt-2 bg-gray-100 rounded-lg p-3 inline-block">
+              <<i class="fa fa-futbol-o text-primary mr-2"></</i>
+              <span>热爱足球运动，经常参与校园足球活动</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学习计划 -->
+    <section id="section2" class="section-transition bg-white rounded-xl shadow-lg p-6 mb-8 hidden">
+      <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+          <<i class="fa fa-book text-2xl text-primary"></</i>
+        </div>
+        <h2 class="text-2xl font-bold">学习计划</h2>
+      </div>
+      <div class="space-y-6">
+        <div class="bg-blue-50 rounded-lg p-5 border-l-4 border-primary">
+          <h3 class="text-lg font-semibold mb-2 flex items-center">
+            <<i class="fa fa-bullseye text-primary mr-2"></</i>学习目标
+          </h3>
+          <p>完成本科学业拿到学位证书，为了工作考虑考研考公。</p >
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-green-50 rounded-lg p-5 border-l-4 border-green-500">
+            <h3 class="text-lg font-semibold mb-2 flex items-center">
+              <<i class="fa fa-calendar-check-o text-green-500 mr-2"></</i>长期学习计划
+            </h3>
+            <p>这学期打好基础，如微观经济学和高数等重要专业课程，为将来就业或考研做准备。</p >
+          </div>
+          <div class="bg-yellow-50 rounded-lg p-5 border-l-4 border-yellow-500">
+            <h3 class="text-lg font-semibold mb-2 flex items-center">
+              <<i class="fa fa-calendar text-yellow-500 mr-2"></</i>短期学习计划
+            </h3>
+            <p>上课认真听讲课，下认真复习，争取期末考个好成绩。</p >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 读书笔记 -->
+    <section id="section3" class="section-transition bg-white rounded-xl shadow-lg p-6 mb-8 hidden">
+      <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+          <<i class="fa fa-bookmark-o text-2xl text-primary"></</i>
+        </div>
+        <h2 class="text-2xl font-bold">读书笔记</h2>
+      </div>
+      <div class="bg-gray-50 rounded-lg p-6 mb-6">
+        <h3 class="text-xl font-semibold mb-4 flex items-center">
+          <<i class="fa fa-book text-primary mr-2"></</i>《毛泽东传》读书笔记
+        </h3>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>读完《毛泽东传》，我仿佛穿越时空，见证了一位伟大领袖波澜壮阔的一生。</p >
+          <p>毛泽东出身农家，却凭借对知识的渴望与不懈追求，走出乡村，投身革命。他以超凡的智慧和勇气，在复杂局势中精准把握方向，提出"农村包围城市，武装夺取政权"的革命道路，为中国革命指明出路。</p >
+          <p>面对艰难险阻，他始终坚定乐观。长征途中，条件艰苦卓绝，他却写下"红军不怕远征难，万水千山只等闲"的豪迈诗篇。新中国成立后，他带领人民艰苦奋斗，致力于国家建设与发展。</p >
+          <p>毛泽东的一生，是为民族独立、人民解放不懈奋斗的一生。他的思想、精神与风范，如璀璨星辰，照亮我们前行的道路。作为新时代青年，我们应传承他的精神，以坚定信念、无畏勇气和务实行动，为实现中华民族伟大复兴贡献力量。</p >
+        </div>
+      </div>
+    </section>
+
+    <!-- 反思日记 -->
+    <section id="section4" class="section-transition bg-white rounded-xl shadow-lg p-6 mb-8 hidden">
+      <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+          <<i class="fa fa-refresh text-2xl text-primary"></</i>
+        </div>
+        <h2 class="text-2xl font-bold">反思日记</h2>
+      </div>
+      <div class="bg-purple-50 rounded-lg p-6 mb-6 border-l-4 border-purple-500">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold">大一新生的时间管理反思</h3>
+          <span class="text-sm text-gray-500">2024年秋季学期</span>
+        </div>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>作为大一新生，这周深切体会到"自由"背后的自律考验——没了高中固定的时间表，常对着空白日程表发呆，结果要么熬夜刷短视频，要么临近ddl才赶作业。</p >
+          <p>问题出在两点：一是时间管理松散，总把"没课"等同于"休息"，忽略了预习、社团例会和运动这些隐性任务；二是目标太模糊，喊着"要提升自己"却没细化到"每天背30个单词""每周整理1次错题本"这样的小步骤，行动起来像无头苍蝇。</p >
+        </div>
+      </div>
+    </section>
+
+    <!-- 作品集（双视频） -->
+    <section id="section5" class="section-transition bg-white rounded-xl shadow-lg p-6 mb-8 hidden">
+      <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+          <<i class="fa fa-briefcase text-2xl text-primary"></</i>
+        </div>
+        <h2 class="text-2xl font-bold">作品集</h2>
+      </div>
+      <div class="bg-gray-50 rounded-lg p-6 mb-6">
+        <h3 class="text-lg font-semibold mb-4 flex items-center">
+          <<i class="fa fa-pencil text-primary mr-2"></</i>学习心得与体会
+        </h3>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>作为大一经济学专业学生，这段时间的学习像打开了观察世界的新窗户。微观经济学的"供求曲线""边际效用"起初抽象枯燥，直到用"机会成本"分析选课纠结——选热门课就得放弃兴趣课，才发现经济学藏在每个生活选择里。</p >
+          <p>宏观经济学则带来"上帝视角"，新闻里的"通货膨胀"不再是数字，而是妈妈说的"猪肉涨价"，理论落地的感觉很奇妙。挑战也不少：专业术语常记混，数学推导题卡壳等等。</p >
+          <p>学经济学和高数，关键在方法！经济学用"生活例子"理解概念，比如供需像奶茶店排队，人多涨价、人少降价。高数课前速看重点视频，课上紧跟推导逻辑，课后真题错题反复练。多结合实际，数学也能变简单！</p >
+        </div>
+      </div>
+      
+      <!-- 双视频区域 -->
+      <div class="space-y-8">
+        <div class="bg-indigo-50 rounded-lg p-5 flex flex-col items-center">
+          <h3 class="font-semibold mb-4 text-center">个人生活视频（一）</h3>
+          <video controls class="w-full max-w-md rounded-lg">
+            <source src="life-video (2)_format_1.mp4" type="video/mp4">
+            你的浏览器不支持视频播放
+          </video>
+        </div>
+        <div class="bg-indigo-50 rounded-lg p-5 flex flex-col items-center">
+          <h3 class="font-semibold mb-4 text-center">个人生活视频（二）</h3>
+          <video controls class="w-full max-w-md rounded-lg">
+            <source src="life-video.mp4" type="video/mp4">
+            你的浏览器不支持视频播放
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- 资源库 -->
+    <section id="section6" class="section-transition bg-white rounded-xl shadow-lg p-6 mb-8 hidden">
+      <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+          <<i class="fa fa-database text-2xl text-primary"></</i>
+        </div>
+        <h2 class="text-2xl font-bold">资源库</h2>
+      </div>
+      <div class="bg-gray-50 rounded-lg p-6 mb-6">
+        <h3 class="text-lg font-semibold mb-4">学习资源推荐</h3>
+        <div class="bg-white rounded-lg shadow-sm p-5 flex items-start hover:scale-105 transition-transform">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+            <<i class="fa fa-graduation-cap text-xl text-blue-600"></</i>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">中国大学MOOC（慕课）</h4>
+            <p class="text-gray-600 mb-3">提供大量优质的在线课程，涵盖各个学科领域</p >
+            <a href=" " target="_blank" class="text-primary flex items-center hover:underline">
+              访问网站 <<i class="fa fa-external-link ml-1"></</i>
+            </a >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">个人学习档案 | 刘希鸿</p >
+      <p class="text-sm text-gray-400">© 2024 版权所有</p >
+    </div>
+  </footer>
+
+  <script>
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const sections = document.querySelectorAll('.section-transition');
+    let currentIndex = 0;
+
+    function updateButtons() {
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === sections.length - 1;
+      prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
+      prevBtn.classList.toggle('cursor-not-allowed', prevBtn.disabled);
+      nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
+      nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
+    }
+
+    function showCurrentSection() {
+      sections.forEach((section, index) => {
+        section.classList.toggle('hidden', index !== currentIndex);
+        if (index === currentIndex) {
+          section.style.opacity = '0';
+          setTimeout(() => section.style.opacity = '1', 50);
+        }
+      });
+      updateButtons();
+      window.scrollTo(0, 0);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < sections.length - 1) {
+        currentIndex++;
+        showCurrentSection();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showCurrentSection();
+      }
+    });
+
+    showCurrentSection();
+  </script>
+</body>
+</html>
